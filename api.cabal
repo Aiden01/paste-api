@@ -53,6 +53,7 @@ executable api
   -- Modules included in this executable, other than Main.
   other-modules: Api.Server
                , Api.Data
+               , Api.Database
                
 
   -- LANGUAGE extensions used by modules in this package.
@@ -60,12 +61,16 @@ executable api
                     , TypeOperators
                     , DataKinds
                     , LambdaCase
+                    , OverloadedStrings
 
   -- Other library packages from which modules are imported.
   build-depends:       base ^>=4.12.0.0
                      , servant >= 0.16.2
                      , servant-server
                      , postgresql-orm
+                     , postgresql-simple
+                     , mtl
+                     , text
                      
 
   -- Directories containing source files.

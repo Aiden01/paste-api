@@ -1,11 +1,19 @@
+{-# LANGUAGE DeriveGeneric #-}
+
 module Api.Data
   ( Document(..)
   )
 where
 
+import GHC.Generics
+import Database.PostgreSQL.ORM.Model
+import qualified Data.Text as T
+
 data Document = Document
-  { id :: Integer
+  { id :: DBKey
   , uuid :: Integer
-  , language :: String
-  , content :: String } deriving (Show)
+  , language :: T.Text
+  , content :: T.Text } deriving (Show, Generic)
+
+instance Model Document
 
